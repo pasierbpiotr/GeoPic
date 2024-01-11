@@ -1,4 +1,4 @@
-package com.example.geopic.ui.theme
+package com.geopic.theme
 
 import androidx.compose.ui.graphics.Color
 

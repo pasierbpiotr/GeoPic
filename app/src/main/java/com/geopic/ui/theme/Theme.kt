@@ -1,4 +1,4 @@
-package com.example.geopic.ui.theme
+package com.geopic.theme
 
 import android.app.Activity
 import android.os.Build

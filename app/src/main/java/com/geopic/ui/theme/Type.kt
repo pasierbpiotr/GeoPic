@@ -1,4 +1,4 @@
-package com.example.geopic.ui.theme
+package com.geopic.theme
 
 import androidx.compose.material3.Typography
 import androidx.compose.ui.text.TextStyle
