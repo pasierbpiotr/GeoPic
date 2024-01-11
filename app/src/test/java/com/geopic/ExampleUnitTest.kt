@@ -1,4 +1,4 @@
-package com.example.geopic
+package com.geopic
 
 import org.junit.Test
 

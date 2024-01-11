@@ -4,11 +4,11 @@ plugins {
 }
 
 android {
-    namespace = "com.example.geopic"
+    namespace = "com.geopic"
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "com.example.geopic"
+        applicationId = "com.geopic"
         minSdk = 29
         targetSdk = 34
         versionCode = 1
