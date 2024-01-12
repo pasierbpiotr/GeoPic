@@ -2,4 +2,7 @@
 <resources>
 
     <style name="Theme.GeoPic" parent="android:Theme.Material.Light.NoActionBar" />
+        <item type="color" name="colorPrimary">@color/FirstColor</item>
+        <item type="color" name="colorPrimaryDark">@color/SecondColor</item>
+        <item type="color" name="colorAccent">@color/ThirdColor</item>
 </resources>
