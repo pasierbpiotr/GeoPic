@@ -1,5 +1,7 @@
 package com.geopic
 
+import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.Fragment
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -15,19 +17,25 @@ import com.geopic.theme.GeoPicTheme
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContent {
-            GeoPicTheme {
-                // A surface container using the 'background' color from the theme
-                Surface(
-                    modifier = Modifier.fillMaxSize(),
-                    color = MaterialTheme.colorScheme.background
-                ) {
-                    Greeting("Android")
-                }
-            }
-        }
+        setContentView(R.layout.layoutmain)
+
+        val firstFragment = FirstFragment()
+        val secondFragment = SecondFragment()
+        val thirdFragment = ThirdFragment()
+
+//        setCurrentFragment(firstFragment)
+//
+//        R.id.bottomNavigationView.setOnNavigationItemSelectedListener {
+//
+//        }
+//        true
     }
 }
+
+//private fun setCurrentFragment(fragment: Fragment) = supportFragmentManager.beginTransaction().apply {
+//    replace(R.id.flFragment,fragment)
+//    commit()
+//}
 
 @Composable
 fun Greeting(name: String, modifier: Modifier = Modifier) {

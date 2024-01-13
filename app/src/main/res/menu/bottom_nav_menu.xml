@@ -11,10 +11,12 @@
         android:id="@+id/map"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:icon="@drawable/map_button_foreground"
         android:title="Map" />
     <item
         android:id="@+id/person"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:icon="@drawable/person_button_foreground"
         android:title="Person" />
 </menu>
