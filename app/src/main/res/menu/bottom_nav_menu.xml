@@ -1,20 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <item
+    <item android:title="Home"
         android:id="@+id/home"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:icon="@drawable/home_button_foreground"
-        android:title="Home" />
-    <item
+        android:icon="@drawable/baseline_home_24"/>
+    <item android:title="Map"
         android:id="@+id/map"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:title="Map" />
-    <item
+        android:icon="@drawable/baseline_map_24"/>
+    <item android:title="Person"
         android:id="@+id/person"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:title="Person" />
+        android:icon="@drawable/baseline_person_24"
+        android:iconTint="@color/ThirdColor"/>
 </menu>
