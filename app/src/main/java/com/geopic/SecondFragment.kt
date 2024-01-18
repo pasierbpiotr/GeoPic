@@ -6,21 +6,42 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.google.android.gms.maps.GoogleMap
+import com.google.android.gms.maps.MapView
 import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
 
 
 class SecondFragment : Fragment(R.layout.fragment_second) {
-    lateinit var mapFragment: SupportMapFragment
-    lateinit var googleMap: GoogleMap
+    private var mapFragment: MapView? = null
+    private var googleMap: GoogleMap? = null
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?): View? {
+        val rootView = inflater.inflate(R.layout.fragment_second, container, false)
 
-        mapFragment = supportFragmentManager.findFragmentById(com.google.android.gms.maps.R.id.map) as SupportMapFragment
-        mapFragment.getMapAsync(OnMapReadyCallback {
-            googleMap = it
+        mapFragment = rootView.findViewById(R.id.map)
+        mapFragment?.onCreate(savedInstanceState)
+        mapFragment?.getMapAsync { map ->
+            googleMap = map
+        }
 
-        })
+        return rootView
+    }
+
+    override fun onResume() {
+        super.onResume()
+        mapFragment?.onResume()
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        mapFragment?.onDestroy()
+    }
+
+    override fun onLowMemory() {
+        super.onLowMemory()
+        mapFragment?.onLowMemory()
     }
 }
