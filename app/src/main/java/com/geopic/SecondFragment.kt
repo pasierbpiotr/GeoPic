@@ -15,6 +15,7 @@ class SecondFragment : Fragment(R.layout.fragment_second) {
     private var mapFragment: MapView? = null
     private var googleMap: GoogleMap? = null
 
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
