@@ -13,9 +13,17 @@ import android.view.ViewGroup
 import android.widget.Button
 import androidx.core.content.ContextCompat
 import android.Manifest
+import android.content.Context
+import android.content.ContextWrapper
+import android.net.Uri
 import android.widget.ImageView
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import java.io.File
+import java.io.FileOutputStream
+import java.io.IOException
+import java.io.OutputStream
+import java.util.UUID
 
 class FirstFragment : Fragment(R.layout.fragment_first) {
 
@@ -49,7 +57,10 @@ class FirstFragment : Fragment(R.layout.fragment_first) {
         val buttonCamera: Button = root.findViewById(R.id.camera_button)
         imageView = root.findViewById(R.id.imageView)
         buttonCamera.setOnClickListener {
-            dispatchTakePictureIntent()
+            val takePictureIntent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
+            if(takePictureIntent.resolveActivity(requireActivity().packageManager) != null) {
+                startActivityForResult(takePictureIntent, REQUEST_IMAGE_CAPTURE)
+            }
         }
         return root
     }
@@ -62,7 +73,25 @@ class FirstFragment : Fragment(R.layout.fragment_first) {
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         if (requestCode == REQUEST_IMAGE_CAPTURE && resultCode == RESULT_OK) {
             val imageBitmap = data?.extras?.get("data") as Bitmap
-            viewModel.image.value = imageBitmap
+            saveImageToInternalStorage(imageBitmap)
         }
     }
+
+    private fun saveImageToInternalStorage(bitmap: Bitmap): Uri {
+        val wrapper = ContextWrapper(requireContext())
+        var file = wrapper.getDir("ImagesDir", Context.MODE_PRIVATE)
+        file = File(file, "${UUID.randomUUID()}.jpg")
+
+        try {
+            val stream: OutputStream = FileOutputStream(file)
+            bitmap.compress(Bitmap.CompressFormat.JPEG, 100, stream)
+            stream.flush()
+            stream.close()
+        } catch (e: IOException) {
+            e.printStackTrace()
+        }
+
+        return Uri.parse(file.absolutePath)
+    }
+
 }

@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <style name="Theme.GeoPic" parent="android:Theme.Material.Light.NoActionBar" />
-        <item type="color" name="colorPrimary">@color/FirstColor</item>
-        <item type="color" name="colorPrimaryDark">@color/SecondColor</item>
-        <item type="color" name="colorAccent">@color/ThirdColor</item>
+
+<!--    <style name="Theme.GeoPic" parent="android:Theme.Material.Light.NoActionBar" />-->
+
+<!--    <item name="colorPrimary" type="color">@color/FirstColor</item>-->
+<!--    <item name="colorPrimaryDark" type="color">@color/SecondColor</item>-->
+<!--    <item name="colorAccent" type="color">@color/ThirdColor</item>-->
+
+<!--    <style name="MainThemeGeoPic" parent="android:Theme.Material.Light.NoActionBar" />-->
 </resources>
