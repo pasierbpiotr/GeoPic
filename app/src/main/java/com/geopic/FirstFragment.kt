@@ -38,7 +38,6 @@ class FirstFragment : Fragment(R.layout.fragment_first) {
 
     private val REQUEST_IMAGE_CAPTURE = 1
     private val REQUEST_LOCATION_PERMISSION = 2
-    private lateinit var viewModel: SharedViewModel
     private lateinit var imageView: ImageView
     private lateinit var fusedLocationProviderClient: FusedLocationProviderClient
 
@@ -59,7 +58,6 @@ class FirstFragment : Fragment(R.layout.fragment_first) {
         savedInstanceState: Bundle?
     ): View? {
         fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(requireActivity())
-        viewModel = ViewModelProvider(requireActivity()).get(SharedViewModel::class.java)
         if (ContextCompat.checkSelfPermission(requireContext(),Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
             requestPermissions(arrayOf(Manifest.permission.ACCESS_FINE_LOCATION), REQUEST_LOCATION_PERMISSION)
         }

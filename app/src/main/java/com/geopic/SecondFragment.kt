@@ -80,8 +80,6 @@ class SecondFragment : Fragment(R.layout.fragment_second) {
         return rootView
     }
 
-
-
     override fun onResume() {
         super.onResume()
         mapFragment?.onResume()

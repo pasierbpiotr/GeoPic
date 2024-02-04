@@ -10,13 +10,14 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.GridView
+import android.widget.ImageButton
 import java.io.File
 import java.io.FileInputStream
 
 
 class ThirdFragment : Fragment(R.layout.fragment_third) {
     private lateinit var imageList: ArrayList<File>
-    lateinit var buttonDelete: Button
+    lateinit var buttonDelete: ImageButton
     private lateinit var gridView: GridView
 
     override fun onCreateView(
@@ -40,8 +41,6 @@ class ThirdFragment : Fragment(R.layout.fragment_third) {
 
         return view
     }
-
-
 
     private fun loadImagesFromInternalStorage(): ArrayList<File> {
         val fileList = ArrayList<File>()

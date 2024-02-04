@@ -10,11 +10,12 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.BaseAdapter
 import android.widget.Button
+import android.widget.ImageButton
 import android.widget.ImageView
 import java.io.File
 import java.io.FileInputStream
 
-class ImageAdapter(private val context: Context, private val imageList: ArrayList<File>, private val buttonDelete: Button) : BaseAdapter() {
+class ImageAdapter(private val context: Context, private val imageList: ArrayList<File>, private val buttonDelete: ImageButton) : BaseAdapter() {
     override fun getCount(): Int {
         return imageList.size
     }
@@ -92,8 +93,6 @@ class ImageAdapter(private val context: Context, private val imageList: ArrayLis
         }
     }
 
-
-
     fun deleteSelectedImages() {
         selectedImages.sortDescending()
         val path = context.getDir("ImagesDIR", Context.MODE_PRIVATE)
@@ -104,8 +103,6 @@ class ImageAdapter(private val context: Context, private val imageList: ArrayLis
         val filesToDelete = mutableListOf<File>()
         for(position in selectedImages) {
             val file = imageList[position]
-//            file.delete()
-//            imageList.removeAt(position)
             if(file.exists()) {
                 editor.remove(file.name)
                 val deleted = file.delete()

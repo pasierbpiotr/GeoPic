@@ -9,21 +9,23 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:gravity="end">
+        android:layout_height="36dp"
+        android:gravity="end"
+        android:orientation="horizontal">
 
-        <Button
+        <ImageButton
             android:id="@+id/buttonDelete"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Usuń" />
+            android:layout_width="43dp"
+            android:layout_height="match_parent"
+            android:background="?android:attr/selectableItemBackground"
+            android:src="@drawable/baseline_delete_forever_24" />
 
-        <Button
+        <ImageButton
             android:id="@+id/buttonSettings"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Ustawienia" />
+            android:layout_width="44dp"
+            android:layout_height="match_parent"
+            android:background="?android:attr/selectableItemBackground"
+            android:src="@drawable/baseline_settings_24" />
     </LinearLayout>
 
     <GridView
