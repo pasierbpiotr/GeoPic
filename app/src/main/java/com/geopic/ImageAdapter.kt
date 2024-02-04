@@ -99,11 +99,23 @@ class ImageAdapter(private val context: Context, private val imageList: ArrayLis
         val path = context.getDir("ImagesDIR", Context.MODE_PRIVATE)
         val directory = File(path.toString())
         val files = directory.listFiles()
+        val sharedPref = context.getSharedPreferences("MainActivity",Context.MODE_PRIVATE)
+        val editor = sharedPref.edit()
+        val filesToDelete = mutableListOf<File>()
         for(position in selectedImages) {
             val file = imageList[position]
-            file.delete()
-            imageList.removeAt(position)
+//            file.delete()
+//            imageList.removeAt(position)
+            if(file.exists()) {
+                editor.remove(file.name)
+                val deleted = file.delete()
+                if (deleted) {
+                    filesToDelete.add(file)
+                }
+            }
         }
+        editor.apply()
+        imageList.removeAll(filesToDelete)
         selectedImages.clear()
         notifyDataSetChanged()
         isSelectionMode = false

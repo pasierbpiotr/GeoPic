@@ -17,6 +17,7 @@ import java.io.FileInputStream
 class ThirdFragment : Fragment(R.layout.fragment_third) {
     private lateinit var imageList: ArrayList<File>
     lateinit var buttonDelete: Button
+    private lateinit var gridView: GridView
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -25,7 +26,7 @@ class ThirdFragment : Fragment(R.layout.fragment_third) {
         val view = inflater.inflate(R.layout.fragment_third, container, false)
         buttonDelete = view.findViewById(R.id.buttonDelete)
         buttonDelete.visibility = View.GONE
-        val gridView = view.findViewById<GridView>(R.id.gridView)
+        gridView = view.findViewById<GridView>(R.id.gridView)
         gridView.numColumns = 3
         gridView.verticalSpacing = 8
         imageList = loadImagesFromInternalStorage()
@@ -39,6 +40,8 @@ class ThirdFragment : Fragment(R.layout.fragment_third) {
 
         return view
     }
+
+
 
     private fun loadImagesFromInternalStorage(): ArrayList<File> {
         val fileList = ArrayList<File>()

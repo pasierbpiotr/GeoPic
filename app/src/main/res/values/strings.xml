@@ -1,6 +1,5 @@
 <resources>
     <string name="app_name">GeoPic</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="APIKEY">AIzaSyC1SIQXMMzGtOqBUF9MKz2677li04xPQpo</string>
     <string name="title_activity_full_screen_image">FullScreenImageActivity</string>
 </resources>
