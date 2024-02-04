@@ -52,12 +52,6 @@ class ImageAdapter(private val context: Context, private val imageList: ArrayLis
 
         imageView.setBackgroundColor(if (selectedImages.contains(position)) Color.RED else Color.TRANSPARENT)
 
-//        imageView.setOnClickListener {
-//            val intent = Intent(context, FullScreenImageActivity::class.java)
-//            intent.putExtra("imagePath", imageList[position].path)
-//            context.startActivity(intent)
-//        }
-
         imageView.setOnLongClickListener {
             if (!isSelectionMode)  {
                 isSelectionMode = true
@@ -70,6 +64,10 @@ class ImageAdapter(private val context: Context, private val imageList: ArrayLis
         imageView.setOnClickListener {
             if (isSelectionMode) {
                 toggleSelection(it,position)
+            } else {
+                val intent = Intent(context, FullScreenImageActivity::class.java)
+                intent.putExtra("image", imageList[position].absolutePath)
+                context.startActivity(intent)
             }
         }
         return imageView
