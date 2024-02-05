@@ -16,16 +16,9 @@ import android.Manifest
 import android.content.Context
 import android.content.ContextWrapper
 import android.location.Location
-import android.net.Uri
-import android.os.Handler
-import android.os.Looper
-import android.widget.ImageView
 import android.widget.Toast
 import androidx.core.app.ActivityCompat
-import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProvider
 import com.google.android.gms.location.FusedLocationProviderClient
-import com.google.android.gms.location.LocationCallback
 import com.google.android.gms.location.LocationServices
 import com.google.android.gms.maps.model.LatLng
 import java.io.File

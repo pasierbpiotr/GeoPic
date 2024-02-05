@@ -2,18 +2,14 @@ package com.geopic
 
 import android.content.Context
 import android.content.Intent
-import android.graphics.Bitmap
-import android.graphics.BitmapFactory
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
 import android.widget.GridView
 import android.widget.ImageButton
 import java.io.File
-import java.io.FileInputStream
 
 
 class ThirdFragment : Fragment(R.layout.fragment_third) {
