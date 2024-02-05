@@ -11,19 +11,52 @@
         android:id="@+id/camera_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Aparat"
+        android:background="@drawable/buttonshape"
+        android:fontFamily="sans-serif"
+        android:text="Keep this place as a memory."
+        android:padding="16dp"
+        android:textAllCaps="false"
+        android:textColor="@color/FirstColor"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="291dp"
-        android:layout_height="273dp"
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="182dp"
+        android:layout_height="31dp"
+        android:text="Welcome to GeoPic!"
+        android:textColor="#252525"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/camera_button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Pin where you're at."
+        android:textColor="#252525"
+        app:layout_constraintBottom_toTopOf="@+id/camera_button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.398"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Take the photo using the button above."
+        android:textColor="#252525"
+        android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/camera_button"
-        tools:srcCompat="@tools:sample/avatars" />
+        app:layout_constraintTop_toBottomOf="@+id/camera_button" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

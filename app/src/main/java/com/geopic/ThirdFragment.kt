@@ -1,6 +1,7 @@
 package com.geopic
 
 import android.content.Context
+import android.content.Intent
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.os.Bundle
@@ -17,6 +18,7 @@ import java.io.FileInputStream
 
 class ThirdFragment : Fragment(R.layout.fragment_third) {
     private lateinit var imageList: ArrayList<File>
+    lateinit var buttonSettings: ImageButton
     lateinit var buttonDelete: ImageButton
     private lateinit var gridView: GridView
 
@@ -26,6 +28,7 @@ class ThirdFragment : Fragment(R.layout.fragment_third) {
     ): View? {
         val view = inflater.inflate(R.layout.fragment_third, container, false)
         buttonDelete = view.findViewById(R.id.buttonDelete)
+        buttonSettings = view.findViewById(R.id.buttonSettings)
         buttonDelete.visibility = View.GONE
         gridView = view.findViewById<GridView>(R.id.gridView)
         gridView.numColumns = 3
@@ -37,6 +40,11 @@ class ThirdFragment : Fragment(R.layout.fragment_third) {
         buttonDelete.setOnClickListener {
             imageAdapter.deleteSelectedImages()
             buttonDelete.visibility = View.GONE
+        }
+
+        buttonSettings.setOnClickListener {
+            val intent = Intent(context, SettingsActivity::class.java)
+            context?.startActivity(intent)
         }
 
         return view

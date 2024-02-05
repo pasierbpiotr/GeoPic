@@ -38,7 +38,6 @@ class FirstFragment : Fragment(R.layout.fragment_first) {
 
     private val REQUEST_IMAGE_CAPTURE = 1
     private val REQUEST_LOCATION_PERMISSION = 2
-    private lateinit var imageView: ImageView
     private lateinit var fusedLocationProviderClient: FusedLocationProviderClient
 
     private fun dispatchTakePictureIntent() {
@@ -63,7 +62,6 @@ class FirstFragment : Fragment(R.layout.fragment_first) {
         }
         val root = inflater.inflate(R.layout.fragment_first, container, false)
         val buttonCamera: Button = root.findViewById(R.id.camera_button)
-        imageView = root.findViewById(R.id.imageView)
         buttonCamera.setOnClickListener {
             if (ContextCompat.checkSelfPermission(requireContext(),Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
                 requestPermissions(arrayOf(Manifest.permission.CAMERA), REQUEST_IMAGE_CAPTURE)
@@ -141,11 +139,4 @@ class FirstFragment : Fragment(R.layout.fragment_first) {
         }
     }
 
-    private fun checkCameraPermission() {
-        if (ContextCompat.checkSelfPermission(requireContext(),Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
-            requestPermissions(arrayOf(Manifest.permission.CAMERA),REQUEST_IMAGE_CAPTURE)
-        } else {
-            dispatchTakePictureIntent()
-        }
-    }
 }
