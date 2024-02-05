@@ -1,16 +1,12 @@
 package com.geopic
 
 import android.graphics.Bitmap
-import com.geopic.theme.GeoPicTheme
 import android.os.Bundle
 import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
 import android.graphics.BitmapFactory
 import android.graphics.Color
-import android.view.MenuItem
 import android.widget.ImageButton
-import androidx.core.view.GravityCompat
-import java.io.File
 
 class FullScreenImageActivity : AppCompatActivity() {
 

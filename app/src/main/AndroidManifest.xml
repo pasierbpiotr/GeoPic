@@ -5,6 +5,7 @@
     <uses-feature
         android:name="android.hardware.camera"
         android:required="false" />
+    <uses-feature android:name="android.hardware.camera.flash" />
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.CAMERA" />
@@ -26,6 +27,11 @@
             android:name=".FullScreenImageActivity"
             android:exported="false"
             android:label="@string/title_activity_full_screen_image"
+            android:theme="@style/MainThemeGeoPic" />
+        <activity
+            android:name=".SettingsActivity"
+            android:exported="false"
+            android:label="SettingsActivity"
             android:theme="@style/MainThemeGeoPic" />
         <activity
             android:name=".MainActivity"

@@ -16,16 +16,9 @@ import android.Manifest
 import android.content.Context
 import android.content.ContextWrapper
 import android.location.Location
-import android.net.Uri
-import android.os.Handler
-import android.os.Looper
-import android.widget.ImageView
 import android.widget.Toast
 import androidx.core.app.ActivityCompat
-import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProvider
 import com.google.android.gms.location.FusedLocationProviderClient
-import com.google.android.gms.location.LocationCallback
 import com.google.android.gms.location.LocationServices
 import com.google.android.gms.maps.model.LatLng
 import java.io.File
@@ -38,7 +31,6 @@ class FirstFragment : Fragment(R.layout.fragment_first) {
 
     private val REQUEST_IMAGE_CAPTURE = 1
     private val REQUEST_LOCATION_PERMISSION = 2
-    private lateinit var imageView: ImageView
     private lateinit var fusedLocationProviderClient: FusedLocationProviderClient
 
     private fun dispatchTakePictureIntent() {
@@ -63,7 +55,6 @@ class FirstFragment : Fragment(R.layout.fragment_first) {
         }
         val root = inflater.inflate(R.layout.fragment_first, container, false)
         val buttonCamera: Button = root.findViewById(R.id.camera_button)
-        imageView = root.findViewById(R.id.imageView)
         buttonCamera.setOnClickListener {
             if (ContextCompat.checkSelfPermission(requireContext(),Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
                 requestPermissions(arrayOf(Manifest.permission.CAMERA), REQUEST_IMAGE_CAPTURE)
@@ -141,11 +132,4 @@ class FirstFragment : Fragment(R.layout.fragment_first) {
         }
     }
 
-    private fun checkCameraPermission() {
-        if (ContextCompat.checkSelfPermission(requireContext(),Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
-            requestPermissions(arrayOf(Manifest.permission.CAMERA),REQUEST_IMAGE_CAPTURE)
-        } else {
-            dispatchTakePictureIntent()
-        }
-    }
 }
